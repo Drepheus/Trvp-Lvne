@@ -1,6 +1,6 @@
 "use client";
 
-import { Music, Instagram, Gamepad2, Video, Headphones, Flame, ArrowRight } from "lucide-react";
+import { Music, Camera, Gamepad2, Video, Headphones, Flame, ArrowRight } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import AnimatedCard from "@/components/AnimatedCard";
 import { motion } from "framer-motion";
@@ -107,7 +107,7 @@ export default function Home() {
             title="Instagram"
             subtitle="@trvplvne"
             url="https://www.instagram.com/trvplvne/"
-            icon={<Instagram className="w-6 h-6" />}
+            icon={<Camera className="w-6 h-6" />}
             colorClass="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-zinc-800 hover:border-pink-500"
           />
         </div>
