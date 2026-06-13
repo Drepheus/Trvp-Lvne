@@ -1,23 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b; /* Zinc 950 */
-  --foreground: #fafafa; /* Zinc 50 */
-  
-  --primary: #9333ea; /* Purple 600 */
+  --background: #030303; /* Deep ambient black */
+  --foreground: #fafafa;
+  --primary: #9333ea; /* Vibrant Purple */
+  --primary-glow: rgba(147, 51, 234, 0.15);
   --primary-foreground: #ffffff;
+  --accent: #ec4899; /* Pink accent */
+  --accent-glow: rgba(236, 72, 153, 0.15);
+  --card-bg: rgba(10, 10, 12, 0.7);
+  --card-border: rgba(255, 255, 255, 0.05);
 }
 
 .theme-light {
   --background: #ffffff;
   --foreground: #09090b;
+  --primary: #7c3aed; /* Deep purple */
+  --primary-glow: rgba(124, 58, 237, 0.05);
+  --primary-foreground: #ffffff;
+  --accent: #db2777; /* Deep pink */
+  --accent-glow: rgba(219, 39, 119, 0.05);
+  --card-bg: rgba(244, 244, 245, 0.8);
+  --card-border: rgba(9, 9, 11, 0.05);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-glow: var(--primary-glow);
   --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-glow: var(--accent-glow);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-outfit);
 }
@@ -33,4 +49,58 @@ body {
 ::selection {
   background: var(--primary);
   color: var(--primary-foreground);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px -5px var(--primary-glow);
+}
+
+.glow-pink {
+  box-shadow: 0 0 40px -5px var(--accent-glow);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 8s infinite ease-in-out;
+}
+
+/* Utilities */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
