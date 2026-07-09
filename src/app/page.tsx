@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { 
   Music, Gamepad2, Video, Headphones, ArrowRight, 
   Play, Pause, Calendar, Send, Sparkles, ExternalLink, ChevronRight, User, Camera, 
-  Tv
+  Tv, Mic, Mic2
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -128,6 +128,7 @@ export default function Home() {
           <a href="#tiktok-live" className="hover:text-white transition-colors">TikTok Live</a>
           <a href="#gaming" className="hover:text-white transition-colors">Gaming</a>
           <a href="#music" className="hover:text-white transition-colors">Music</a>
+          <a href="#podcast" className="hover:text-white transition-colors">Podcast</a>
           <a href="#social" className="hover:text-white transition-colors">Social</a>
         </nav>
         <motion.a 
@@ -167,7 +168,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-zinc-400 font-light max-w-xl leading-relaxed"
             >
-              The official hub for all things Trvp Lvne. Catch the latest TikTok streams, explore the gaming channel, and dive into the discography.
+              The official hub for all things Trvp Lvne. Catch the latest TikTok streams, explore the gaming channel, dive into the discography, and tune into the podcast.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -445,7 +446,147 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* 5. Social & About (Rest of his stuff) */}
+      {/* 5. Podcast Section */}
+      <SectionWrapper id="podcast" className="relative z-10 py-32 bg-gradient-to-b from-zinc-950 to-zinc-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-white font-bold uppercase tracking-widest text-xs mb-6"
+            >
+              <Mic2 className="w-4 h-4 text-primary" /> THE TRVP LVNE PODCAST
+            </motion.div>
+            <h2 className="font-heading text-5xl md:text-7xl font-black tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              OFFICIAL PODCAST
+            </h2>
+            <p className="text-zinc-400 text-xl max-w-2xl mx-auto font-light leading-relaxed mb-12">
+              Deep dives into the creative process, underground culture, gaming stories, and unfiltered conversations. New episodes weekly.
+            </p>
+
+            {/* Platform Links */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
+              <a href="https://open.spotify.com/show/your-podcast-id" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full bg-[#1DB954] text-black font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png" alt="Spotify" className="h-5 object-contain opacity-80" /> Spotify
+              </a>
+              <a href="https://podcasts.apple.com/podcast/your-podcast-id" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full bg-[#9933FF] text-white font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                <Mic className="w-5 h-5" /> Apple Podcasts
+              </a>
+              <a href="https://www.youtube.com/@your-channel" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full bg-[#FF0000] text-white font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                <Video className="w-5 h-5" /> YouTube
+              </a>
+            </div>
+          </div>
+
+          {/* Featured/Latest Episode */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-panel rounded-3xl overflow-hidden border border-white/5 mb-16"
+          >
+            <div className="md:flex">
+              <div className="relative w-full md:w-1/3 min-h-[280px] md:min-h-[400px] flex-shrink-0">
+                <img 
+                  src="/images/podcast-cover.jpg" 
+                  alt="Latest Episode Cover" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/90 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                    <Mic className="w-3 h-3" /> Latest Episode
+                  </span>
+                  <h3 className="font-heading text-2xl md:text-3xl font-black mb-2">EP. 12 — Building the Underground</h3>
+                  <p className="text-zinc-300 text-sm mb-4">Deep dive into the creative process, late-night sessions, and staying independent.</p>
+                  <div className="flex flex-wrap gap-3">
+                    <a href="https://open.spotify.com/episode/your-episode-id" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-colors flex items-center gap-2">
+                      <Play className="w-4 h-4" /> Play Episode
+                    </a>
+                    <a href="#" className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:scale-105 transition-transform flex items-center gap-2">
+                      <Calendar className="w-4 h-4" /> 2 Days Ago
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="md:w-2/3 p-8 md:p-12 flex flex-col justify-center">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center">
+                    <Mic2 className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading text-3xl font-black text-white">The Trvp Lvne Podcast</h4>
+                    <p className="text-zinc-400">Hosted by Trvp Lvne • Weekly Episodes</p>
+                  </div>
+                </div>
+                <p className="text-zinc-300 leading-relaxed mb-8 max-w-2xl">
+                  Welcome to the official podcast where we break down the music, the grind, the gaming culture, and everything in between. From studio sessions to late-night gaming marathons, join the journey of building something real from the ground up. No filters, no fluff — just raw conversations with the creator and special guests from the underground scene.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <a href="https://open.spotify.com/show/your-podcast-id" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full bg-[#1DB954] text-black font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                    <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png" alt="Spotify" className="h-5 object-contain opacity-80" /> Listen on Spotify
+                  </a>
+                  <a href="https://podcasts.apple.com/podcast/your-podcast-id" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full bg-zinc-800 border border-zinc-700 text-white font-bold hover:bg-zinc-700 transition-colors flex items-center gap-2">
+                    <Mic className="w-5 h-5" /> Apple Podcasts
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Episodes Grid */}
+          <div>
+            <h3 className="font-heading text-3xl font-black text-white mb-10 text-center">RECENT EPISODES</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { ep: "EP. 12", title: "Building the Underground", desc: "Creative process, independence, and the grind", duration: "42:15", date: "2 days ago", cover: "/images/ep12.jpg" },
+                { ep: "EP. 11", title: "Gaming & Content Creation", desc: "Balancing streams, edits, and music production", duration: "38:42", date: "1 week ago", cover: "/images/ep11.jpg" },
+                { ep: "EP. 10", title: "The Sound Design Deep Dive", desc: "Synths, samples, and crafting the signature sound", duration: "45:30", date: "2 weeks ago", cover: "/images/ep10.jpg" },
+                { ep: "EP. 09", title: "Late Night Studio Sessions", desc: "Stories from the booth, collabs, and unreleased tracks", duration: "41:22", date: "3 weeks ago", cover: "/images/ep09.jpg" },
+                { ep: "EP. 08", title: "Mental Health in the Grind", desc: "Burnout, balance, and staying creative long-term", duration: "39:18", date: "1 month ago", cover: "/images/ep08.jpg" },
+                { ep: "EP. 07", title: "From Bedroom to Stage", desc: "The journey from making beats to live shows", duration: "44:05", date: "1 month ago", cover: "/images/ep07.jpg" },
+              ].map((ep, idx) => (
+                <motion.div
+                  key={ep.ep}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -8 }}
+                  className="glass-panel p-4 rounded-2xl group relative overflow-hidden border border-white/5 hover:border-primary/30 transition-all flex flex-col"
+                >
+                  <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
+                    <img 
+                      src={ep.cover} 
+                      alt={ep.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Play className="w-12 h-12 text-white transform transition-transform group-hover:scale-110" />
+                    </div>
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-bold rounded-full">{ep.ep}</span>
+                    </div>
+                    <div className="absolute bottom-3 right-3 text-white/80 text-xs font-mono">{ep.duration}</div>
+                  </div>
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="font-heading font-bold text-white text-lg mb-2 group-hover:text-primary transition-colors">{ep.title}</h4>
+                      <p className="text-sm text-zinc-500 line-clamp-2">{ep.desc}</p>
+                    </div>
+                    <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-4">
+                      <span className="text-xs text-zinc-500">{ep.date}</span>
+                      <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* 6. Social & About (Rest of his stuff) */}
       <SectionWrapper id="social" className="relative z-10 py-32">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -552,6 +693,7 @@ export default function Home() {
             <a href="https://music.apple.com/us/artist/trvp-lvne/1473470814" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Apple Music</a>
             <a href="https://www.instagram.com/trvplvne/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
             <a href="https://www.tiktok.com/@thenvmeislvne" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">TikTok</a>
+            <a href="#podcast" className="hover:text-primary transition-colors">Podcast</a>
           </div>
           <p className="text-xs tracking-wider text-zinc-600 font-mono">
             &copy; {new Date().getFullYear()} TRVP LVNE.
